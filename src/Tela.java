@@ -133,9 +133,9 @@ public class Tela extends JFrame {
         btnSobremesas = new JButton[8];
         
         for(int i=0; i<btnBebidas.length; i++){
-            btnBebidas[i] = new JButton();
+            btnBebidas[i] = new JButton(new ImageIcon("img/b" + i + ".png"));
             btnBebidas[i].setBackground(Color.white);
-            btnSobremesas[i] = new JButton();
+            btnSobremesas[i] = new JButton(new ImageIcon("img/s" + i + ".png"));
             btnSobremesas[i].setBackground(Color.white);
             //POSICIONANDO BOTOES
             if(i<4){
@@ -148,17 +148,29 @@ public class Tela extends JFrame {
                      
             }
             ctnTela.add(btnBebidas[i]);
-            ctnTela.add(btnSobremesas[i]);
-
-           
-            
-            
-           
+            ctnTela.add(btnSobremesas[i]);         
             
         }
         
+        //TABELA
+        tblItens = new JTable();//instanciando tabela
+        srcItens = new JScrollPane(tblItens);//instanciando scroll e vinculando á tabela
+        mdlItens = (DefaultTableModel) tblItens.getModel();
         
+        srcItens.setBounds(510, 200, 320, 387);
+        ctnTela.add(srcItens);
         
+        //MONTANDO TOPO DA TABELA
+        String sTopo[] = {"Item", "Qtde"};
+        for(int i=0; i<sTopo.length; i++){
+            
+            mdlItens.addColumn(sTopo[i]);
+            
+        }        
+        btnFecharPedido = new JButton("Fechar Pedido");
+        btnFecharPedido.setFont(fntLabels);
+        btnFecharPedido.setBounds(510, 600, 320, 50);
+        ctnTela.add(btnFecharPedido);
         //CRIACAO DA TELA
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//ENCERRA O PROCESSO AO FECHAR
         this.setSize(montarTela().width, montarTela().height - 33);//DIMENSOES DA JANELA
