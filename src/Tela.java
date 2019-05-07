@@ -127,6 +127,37 @@ public class Tela extends JFrame {
         
         //FIM TEXTOS
       
+        //instanciando vetores de botoes (bebidas e sobremesas)
+        
+        btnBebidas = new JButton[8];
+        btnSobremesas = new JButton[8];
+        
+        for(int i=0; i<btnBebidas.length; i++){
+            btnBebidas[i] = new JButton();
+            btnBebidas[i].setBackground(Color.white);
+            btnSobremesas[i] = new JButton();
+            btnSobremesas[i].setBackground(Color.white);
+            //POSICIONANDO BOTOES
+            if(i<4){
+            btnBebidas[i].setBounds(850 + (i*120),200,100,100);
+            btnSobremesas[i].setBounds(850 + (i*120),470,100,100);
+        
+            }else{
+            btnBebidas[i].setBounds(850 + ((i-4)*120),315,100,100);
+            btnSobremesas[i].setBounds(850 + ((i-4)*120),585,100,100);        
+                     
+            }
+            ctnTela.add(btnBebidas[i]);
+            ctnTela.add(btnSobremesas[i]);
+
+           
+            
+            
+           
+            
+        }
+        
+        
         
         //CRIACAO DA TELA
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//ENCERRA O PROCESSO AO FECHAR
