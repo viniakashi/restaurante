@@ -169,7 +169,7 @@ public class Tela extends JFrame {
         }        
         btnFecharPedido = new JButton("Fechar Pedido");
         btnFecharPedido.setFont(fntLabels);
-        btnFecharPedido.setBounds(510, 600, 320, 50);
+        btnFecharPedido.setBounds(510, 600, 320, 40);
         ctnTela.add(btnFecharPedido);
         //CRIACAO DA TELA
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//ENCERRA O PROCESSO AO FECHAR
