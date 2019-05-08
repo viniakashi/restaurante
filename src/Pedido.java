@@ -2,8 +2,9 @@
 public class Pedido {
     
     //atributos
-    public static float vRodizio, vAcompanhamentos, vServicos, vEstacionamento, vTotal;
+    public static float vRodizio, vAcompanhamentos, vServicos, vEstacionamento, vParcial, vTotal;
     public static boolean stEstacionamento;
+    public static int qtdePessoas;
     
     public static String sBebidas[] = {"Água", "Refrigerante", "Suco", "Café", "Milkshake","Toddynho", "Cerveja", "Vinho"}; 
     public static float vBebidas[] = {(float)5, (float)8, (float)7.50, (float)3.5, (float)8, (float)5.50,(float)6
@@ -16,10 +17,12 @@ public class Pedido {
     //construtor
     public Pedido(float tmpRodizio){
         
+        this.qtdePessoas = 1;
         this.vRodizio = tmpRodizio;
         this.vAcompanhamentos = 0;
         this.vServicos = 0;
         this.vEstacionamento = 0;
+        this.vParcial = 0;
         this.vTotal = 0;
         
         
@@ -28,6 +31,19 @@ public class Pedido {
     
     //metodos funcionais
     
+    public static float atualizarValores(){
+        
+        vParcial = vRodizio * qtdePessoas;
+        vServicos = (vParcial + vAcompanhamentos) * (float)0.1;
+        
+        if(stEstacionamento){           
+            vEstacionamento = 15;          
+        }
+        
+        vTotal = vParcial + vServicos + vAcompanhamentos + vEstacionamento;
+        
+        return vTotal;
+    }
     
     
 }

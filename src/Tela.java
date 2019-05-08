@@ -6,6 +6,12 @@ import javax.swing.table.*;
 //Classe tela herda características da classe JFrame
 public class Tela extends JFrame {
     
+    //declaracao da instancia do pedido
+    
+    public static Pedido objComanda = new Pedido((float)49.90);
+    
+    
+    
     //declaração publica dos objetos
     public static Font fntLabels = new Font("TAHOMA", Font.BOLD, 24);
     public static Font fntCxTexto = new Font("Verdana", Font.PLAIN, 22);
@@ -51,6 +57,7 @@ public class Tela extends JFrame {
         lblQPessoas.setBounds(15, 270, 250, 30);
         ctnTela.add(lblQPessoas);
         
+        
         lblTRodizio = new JLabel("Total Rodízio:");
         lblTRodizio.setFont(fntLabels);
         lblTRodizio.setBounds(15, 340, 250, 30);
@@ -79,6 +86,7 @@ public class Tela extends JFrame {
         lblTotal.setFont(fntLabels);
         lblTotal.setBounds(15, 620, 250, 30);
         ctnTela.add(lblTotal);
+        
         //FIM LABELS
         
         //TEXTOS
@@ -94,6 +102,12 @@ public class Tela extends JFrame {
         txtQPessoas.setFont(fntCxTexto);
         txtQPessoas.setBounds(240, 270, 120, 30);
         ctnTela.add(txtQPessoas);
+        
+        btnAdd = new JButton("+");
+        //btnAdd.setBackground(Color.white);
+        btnAdd.setFont(fntCxTexto);
+        btnAdd.setBounds(380, 270, 100, 30);
+        ctnTela.add(btnAdd);
         
         txtTRodizio = new JTextField();
         txtTRodizio.setEditable(false);
@@ -134,8 +148,11 @@ public class Tela extends JFrame {
         
         for(int i=0; i<btnBebidas.length; i++){
             btnBebidas[i] = new JButton(new ImageIcon("img/b" + i + ".png"));
+            btnBebidas[i].setToolTipText(objComanda.sBebidas[i]+ " - R$" + objComanda.vBebidas[i]);
             btnBebidas[i].setBackground(Color.white);
+            
             btnSobremesas[i] = new JButton(new ImageIcon("img/s" + i + ".png"));
+            btnSobremesas[i].setToolTipText(objComanda.sSobremesas[i]+ " - R$" + objComanda.vSobremesas[i]);
             btnSobremesas[i].setBackground(Color.white);
             //POSICIONANDO BOTOES
             if(i<4){
